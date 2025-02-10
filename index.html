@@ -1,49 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enterprise System</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body>
-    <!-- Navbar -->
-    <nav class="bg-blue-600 p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <!-- Logo -->
-            <a href="#" class="text-white text-2xl font-bold">Nav Bar</a>
+<html>
+<title>simple sidebar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="index.css">  <body>
 
-            <!-- Navigation Links -->
-            <ul class="hidden md:flex space-x-6">
-                <li><a href="#" class="text-white hover:text-gray-200">User</a></li>
-                <li><a href="#" class="text-white hover:text-gray-200">Temps user</a></li>
-                <li><a href="#" class="text-white hover:text-gray-200">total number of user</a></li>
-                
-            </ul>
+<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+  <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+  <a href="#" class="w3-bar-item w3-button">user</a>
+  <a href="#" class="w3-bar-item w3-button">temp user 2</a>
+  <a href="#" class="w3-bar-item w3-button">Number of users</a>
+</div>
 
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden text-white focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-        </div>
+<div class="w3-teal">
+  <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
+  <div class="w3-container">
+    <h1>List of users</h1>
+  </div>
+</div>
 
-        <!-- Mobile Menu (Hidden by default) -->
-        <div class="md:hidden mt-2">
-            <ul class="flex flex-col space-y-2">
-                <li><a href="#" class="block text-white hover:text-gray-200">User</a></li>
-                <li><a href="#" class="block text-white hover:text-gray-200">Temps user</a></li>
-                <li><a href="#" class="block text-white hover:text-gray-200">total number of user</a></li>
-                
-            </ul>
-        </div>
-    </nav>
+<div class="w3-container">
+  <p>Some example content.  This will be pushed to the right when the sidebar is open.</p>
+  <p>More content...</p>
+</div>
 
-    <!-- Content -->
-    <div class="container mx-auto p-4">
-        <h1 class="text-2xl font-bold">oww yeah</h1>
-        <p class="mt-4">helloo</p>
-    </div>
+<script>
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.body.classList.add("sidebar-open");
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.body.classList.remove("sidebar-open");
+}
+</script>
+
 </body>
 </html>
