@@ -2,25 +2,37 @@
 <html>
 <title>simple sidebar</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="index.css">  <body>
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<body>
 
 <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
   <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
-  <a href="#" class="w3-bar-item w3-button">user</a>
-  <a href="#" class="w3-bar-item w3-button">temp user 2</a>
-  <a href="#" class="w3-bar-item w3-button">Number of users</a>
+  <a href="#" class="w3-bar-item w3-button">Home</a>
+  <a href="#" class="w3-bar-item w3-button">News</a>
+
+  <div class="w3-dropdown-click">
+    <a onclick="toggleDropdown()" class="w3-bar-item w3-button">Accounts</a>
+  <div id="accountDropdown" class="w3-dropdown-content w3-bar-block" style="display:none">
+
+      <a href="#" class="w3-bar-item w3-button">Users</a>
+      <a href="#" class="w3-bar-item w3-button">Temp Users</a>
+      <a href="#" class="w3-bar-item w3-button">Total Number of Users</a>
+    </div>
+  </div>
 </div>
 
 <div class="w3-teal">
-  <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
+  <!-- Three-line button (menu icon) -->
+  <button class="w3-button w3-teal w3-xxlarge" onclick="w3_open()"><i class="fas fa-bars"></i></button>
   <div class="w3-container">
     <h1>List of users</h1>
   </div>
 </div>
 
 <div class="w3-container">
-  <p>Some example content.  This will be pushed to the right when the sidebar is open.</p>
-  <p>More content...</p>
+  <p>to be edited</p>
+  <p></p>
 </div>
 
 <script>
@@ -32,6 +44,15 @@ function w3_open() {
 function w3_close() {
   document.getElementById("mySidebar").style.display = "none";
   document.body.classList.remove("sidebar-open");
+}
+
+function toggleDropdown() {
+  var dropdown = document.getElementById("accountDropdown");
+  if (dropdown.style.display === "none") {
+    dropdown.style.display = "block";
+  } else {
+    dropdown.style.display = "none";
+  }
 }
 </script>
 
